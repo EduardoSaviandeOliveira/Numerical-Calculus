@@ -10,22 +10,35 @@
 
 - The mathematical notation that is used is a stylized "d" as $\partial$:
 
-    Example $\dfrac { \partial² f(x)}{\partial x²} = \dfrac {d}{dx}(\dfrac {d}{dx}f(x))$ 
+    Example $\dfrac {\partial² f(x)}{\partial x²} = \dfrac {d}{dx}(\dfrac {d}{dx}f(x))$ 
 
 ## Types and examples
 
 - Parabolic:
 
-    Heat equation $\dfrac { \partial u}{\partial t} = \alpha \dfrac { \partial²u}{\partial x²}$
+    Heat equation $\dfrac {\partial u}{\partial t} = \alpha \dfrac { \partial²u}{\partial x²}$
 
 - Elliptic:
 
-    Laplace equation $\nabla²u = \dfrac { \partial² u}{\partial x²} + \dfrac { \partial²u}{\partial y²} = 0$
-- Hyperbolic: 
+    Laplace equation $\nabla²u = \dfrac {\partial² u}{\partial x²} + \dfrac {\partial²u}{\partial y²} = 0$
 
-    Wave equation $\dfrac { \partial² u}{\partial t²} = c²\dfrac { \partial² u}{\partial x²}$
+- Hyperbolic:
+
+    Wave equation $\dfrac {\partial² u}{\partial t²} = c²\dfrac { \partial² u}{\partial x²}$
 
 ## Finite-Difference method
+
+### Numerical Central Derivatives
+
+- $\dfrac  {\partial u}{\partial x} u(x,t) \approx \dfrac {u(x + h,t) - u(x - h,t)}{2h}$
+
+- $\dfrac {\partial² u}{\partial x²} u(x,t) \approx \dfrac {u(x + h,t) - 2u(x,t) + u(x - h,t)}{h²}$
+
+- $\dfrac {\partial² u}{\partial t²} u(x,t) \approx \dfrac {u(x,t + k) - 2u(x,t) + u(x,t - h)}{k²}$
+
+- $\dfrac {\partial² u}{\partial x\partial t} u(x,t) \approx \dfrac {u(x + h,t + k) - u(x + h,t - k) - u(x - h,t +k) + u(x - h,t - k)}{4hk}$
+
+
 
 ## Bibliographic references
 
