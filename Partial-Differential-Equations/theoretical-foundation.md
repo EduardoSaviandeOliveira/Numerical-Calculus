@@ -10,13 +10,13 @@
 
 - The mathematical notation that is used is a stylized "d" as $\partial$:
 
-    Example $\dfrac {\partial² f(x)}{\partial x²} = \dfrac {d}{dx}(\dfrac {d}{dx}f(x))$ 
+    Example $\dfrac {\partial² f(x)}{\partial x²} = \dfrac {d}{dx}(\dfrac {d}{dx}f(x))$
 
 ## Types and examples
 
 - Parabolic:
 
-    Heat equation $\dfrac {\partial u}{\partial t} = \alpha \dfrac { \partial²u}{\partial x²}$
+    Heat equation $\dfrac {\partial u}{\partial t} = \alpha² \dfrac {\partial²u}{\partial x²}$
 
 - Elliptic:
 
@@ -26,17 +26,42 @@
 
     Wave equation $\dfrac {\partial² u}{\partial t²} = c²\dfrac { \partial² u}{\partial x²}$
 
-## Finite-Difference method
+## Finite-Difference method (FMD)
+
+The FMD is a descriptor method for solving differential equations that is based on the approximation of derivatives by finite differences. The approximation formula is obtained from the Taylor series of the derived function.
 
 ### Numerical Central Derivatives
 
 - $\dfrac  {\partial u}{\partial x} u(x,t) \approx \dfrac {u(x + h,t) - u(x - h,t)}{2h}$
+
+- $\dfrac  {\partial u}{\partial t} u(x,t) \approx \dfrac {u(x,t) - u(x,t - k)}{k}$
 
 - $\dfrac {\partial² u}{\partial x²} u(x,t) \approx \dfrac {u(x + h,t) - 2u(x,t) + u(x - h,t)}{h²}$
 
 - $\dfrac {\partial² u}{\partial t²} u(x,t) \approx \dfrac {u(x,t + k) - 2u(x,t) + u(x,t - h)}{k²}$
 
 - $\dfrac {\partial² u}{\partial x\partial t} u(x,t) \approx \dfrac {u(x + h,t + k) - u(x + h,t - k) - u(x - h,t +k) + u(x - h,t - k)}{4hk}$
+
+## Heat equation
+
+Heat equation:
+
+$\dfrac {\partial u}{\partial t} = \alpha^2 \dfrac { \partial²u}{\partial x²}$
+
+Replacing with numerical derivatives:
+
+$\dfrac {u(x,t) - u(x,t - k)}{k} = \alpha² \dfrac {u(x + h,t) - 2u(x,t) + u(x - h,t)}{h²}$
+n
+
+Manipulating
+
+$u(x,t - k) = -k\alpha² \dfrac {u(x + h,t) + u(x - h, t) - u(x,t)(2 - h²)}{h²}$
+
+In numerical form:
+
+$u(x,t_{j-1}) = -k\alpha² \dfrac {u(x_{i+1},t) + u(x_{i+1},t) - u(x,t)(2 - h²)}{h²}$
+
+## Boundary Conditions
 
 
 

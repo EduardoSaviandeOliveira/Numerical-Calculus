@@ -1,8 +1,10 @@
 module diferencial_equations
 
-u(x::Float64,t::Float64) = x ^ 2 + t ^2
+u(x::Float64,t::Float64) = x ^ 2 + t ^ 2 - x
 
 ux(x::Float64,t::Float64) = (u(x+h,t) - u(x-h,t)) / 2
+
+ut(x::Float64,t::Float64) = (u(x,t+k) - u(x,t)) / 2
 
 uxx(x::Float64,t::Float64,h::Float64) = (u(x+h,t) - 2u(x,t) + u(x-h, t)) / h ^ 2
 
